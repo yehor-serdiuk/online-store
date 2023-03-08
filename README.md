@@ -28,4 +28,18 @@ rmdir ./test-app/
 
 #=============================================================
 # open in idea
-#
+#=============================================================
+
+# in terminal to build etc.
+#mvn compile
+#mvn package
+#mvn install
+
+#..../project/egor$ mvn clean package
+
+..../project/egor$ mvn clean install
+cd ./app/target
+
+# it doesn't work. I'll fix it!
+java -cp ~/.m2/repository/egor/test/lib/1.0-SNAPSHOT/lib-1.0-SNAPSHOT.jar -jar ./app-1.0-SNAPSHOT.jar
+export CLASSPATH=../../lib/target/lib-1.0-SNAPSHOT.jar & java -jar ./app-1.0-SNAPSHOT.jar
