@@ -43,3 +43,7 @@ cd ./app/target
 # it doesn't work. I'll fix it!
 java -cp ~/.m2/repository/egor/test/lib/1.0-SNAPSHOT/lib-1.0-SNAPSHOT.jar -jar ./app-1.0-SNAPSHOT.jar
 export CLASSPATH=../../lib/target/lib-1.0-SNAPSHOT.jar & java -jar ./app-1.0-SNAPSHOT.jar
+
+
+# it works! run in the root of the repo
+java -classpath ".\lib\target\lib-1.0-SNAPSHOT.jar;.\app\target\app-1.0-SNAPSHOT.jar" egor.my.app.App
