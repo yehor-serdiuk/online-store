@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore.util;
+package ua.volcaniccupcake.onlinestore.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.actuate.health.Health;
