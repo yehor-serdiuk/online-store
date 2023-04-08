@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore.util;
+package ua.volcaniccupcake.onlinestore.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
