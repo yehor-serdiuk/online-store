@@ -42,33 +42,5 @@ public class OnlineStoreApplication {
 				.build();
 		return new LinkedHashSet<>(Set.of(note1, note2));
 	}
-	@Bean
-	public OpenAPI customOpenAPI(AppProperties appProperties) {
-
-		return new OpenAPI().info(new Info()
-				.title("Online store API")
-				.description(appProperties.getDescription())
-				.version(appProperties.getVersion())
-				.termsOfService("http://swagger.io/terms/")
-				.license(new License()
-						.name("GPLv3")
-						.url("https://www.gnu.org/licenses/gpl-3.0.html")));
-	}
-
-	/*@Bean
-	public UserDetailsService users() {
-		User.UserBuilder users = User.withDefaultPasswordEncoder();
-		UserDetails user = users
-			.username("user")
-			.password("password")
-			.roles("USER")
-			.build();
-		UserDetails admin = users
-			.username("admin")
-			.password("password")
-			.roles("ADMIN")
-			.build();
-		return new InMemoryUserDetailsManager(user, admin);
-	}*/
 
 }
