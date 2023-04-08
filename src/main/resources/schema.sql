@@ -1,4 +1,4 @@
-CREATE TABLE countries (
+CREATE TABLE country (
     id BIGINT not null,
     name VARCHAR(255),
     PRIMARY KEY (id)

@@ -15,8 +15,8 @@ public class Sneakers {
 
     private String name;
 
-    /*@JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="country_id")
-    Country country;*/
+    Country country;
 }

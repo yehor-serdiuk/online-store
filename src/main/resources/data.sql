@@ -1,10 +1,10 @@
-INSERT INTO countries(id, name) VALUES (1, 'Ukraine');
-INSERT INTO countries(id, name) VALUES (2, 'Poland');
-INSERT INTO countries(id, name) VALUES (3, 'Germany');
-INSERT INTO countries(id, name) VALUES (4, 'France');
-INSERT INTO countries(id, name) VALUES (5, 'Germany');
-INSERT INTO countries(id, name) VALUES (6, 'Netherlands');
-INSERT INTO countries(id, name) VALUES (7, 'United States');
+INSERT INTO country(id, name) VALUES (1, 'Ukraine');
+INSERT INTO country(id, name) VALUES (2, 'Poland');
+INSERT INTO country(id, name) VALUES (3, 'Germany');
+INSERT INTO country(id, name) VALUES (4, 'France');
+INSERT INTO country(id, name) VALUES (5, 'Germany');
+INSERT INTO country(id, name) VALUES (6, 'Netherlands');
+INSERT INTO country(id, name) VALUES (7, 'United States');
 
 INSERT INTO sneakers(id, name, country_id) VALUES (1, 'Adidas', 1);
 INSERT INTO sneakers(id, name, country_id) VALUES (2, 'Nike', 1);

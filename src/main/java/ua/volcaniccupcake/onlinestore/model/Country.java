@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity(name = "country")
-@Table(name = "countries")
+@Table(name = "country")
 @Getter
 @Setter
 public class Country {
@@ -21,7 +21,7 @@ public class Country {
 
     private String name;
 
-    /*@JsonIgnore
-    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Sneakers> sneakers;*/
+    @JsonIgnore
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    private List<Sneakers> sneakers;
 }
