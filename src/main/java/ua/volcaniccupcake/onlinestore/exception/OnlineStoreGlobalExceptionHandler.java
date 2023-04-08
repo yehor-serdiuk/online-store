@@ -11,10 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class OnlineStoreGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {SneakersNotFoundException.class})
-    public ResponseEntity<?> handleSneakersNotFound(
-            SneakersNotFoundException sneakersNotFoundException,
+    @ExceptionHandler(value = {ProductNotFoundException.class})
+    public ResponseEntity<?> handleProductNotFound(
+            ProductNotFoundException ProductNotFoundException,
             WebRequest request) {
-        return super.handleExceptionInternal(sneakersNotFoundException, sneakersNotFoundException.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return super.handleExceptionInternal(ProductNotFoundException, ProductNotFoundException.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 }

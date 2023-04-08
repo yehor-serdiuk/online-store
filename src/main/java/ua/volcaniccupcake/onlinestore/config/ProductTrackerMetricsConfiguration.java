@@ -6,12 +6,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SneakersTrackerMetricsConfiguration {
+public class ProductTrackerMetricsConfiguration {
 
     @Bean
-    public Counter createSneakersCounter(MeterRegistry meterRegistry) {
-        return Counter.builder("api.sneakers.created.count")
-                .description("Total number of sneakers created")
+    public Counter createProductCounter(MeterRegistry meterRegistry) {
+        return Counter.builder("api.product.created.count")
+                .description("Total product created")
                 .register(meterRegistry);
     }
 

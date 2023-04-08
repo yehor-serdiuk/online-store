@@ -4,18 +4,18 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import ua.volcaniccupcake.onlinestore.repository.SneakersRepository;
+import ua.volcaniccupcake.onlinestore.repository.ProductRepository;
 
 @Component
 @AllArgsConstructor
-public class SneakerExistenceHandler {
+public class ProductExistenceHandler {
 
-    private SneakersRepository sneakersRepository;
+    private ProductRepository productRepository;
 
     @EventListener(classes = ContextRefreshedEvent.class)
     public void listen() {
-        if ( sneakersRepository.count() == 0 )
-            throw new NoSneakersException();
+        if ( productRepository.count() == 0 )
+            throw new NoProductException();
     }
 
 }

@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name="sneakers")
-@Table(name="sneakers")
+@Entity(name="product")
+@Table(name="product")
 @Data
-public class Sneakers {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -23,5 +23,5 @@ public class Country {
 
     @JsonIgnore
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-    private List<Sneakers> sneakers;
+    private List<Product> productList;
 }

@@ -2,12 +2,12 @@ package ua.volcaniccupcake.onlinestore.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ua.volcaniccupcake.onlinestore.model.Sneakers;
+import ua.volcaniccupcake.onlinestore.model.Product;
 
 import java.util.List;
 
 @Repository
-public interface SneakersRepository extends CrudRepository<Sneakers, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    List<Sneakers> findAllByName(String name);
+    List<Product> findAllByName(String name);
 }

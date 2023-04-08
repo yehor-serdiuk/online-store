@@ -4,17 +4,17 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
-import ua.volcaniccupcake.onlinestore.repository.SneakersRepository;
+import ua.volcaniccupcake.onlinestore.repository.ProductRepository;
 
 @Component
 @AllArgsConstructor
-public class SneakersHealthIndicator implements HealthIndicator {
+public class ProductHealthIndicator implements HealthIndicator {
 
-    private SneakersRepository sneakersRepository;
+    private ProductRepository productRepository;
 
     @Override
     public Health health() {
-        if ( sneakersRepository.count() == 0)
+        if ( productRepository.count() == 0)
             return Health.down().withDetail("status", "repository empty").build();
         else
             return Health.up().build();
