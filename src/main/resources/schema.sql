@@ -14,4 +14,4 @@ CREATE TABLE sneakers (
 ALTER TABLE sneakers
     ADD CONSTRAINT country_id_fk
     FOREIGN KEY (country_id)
-    REFERENCES countries (id);
+    REFERENCES country (id);

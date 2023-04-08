@@ -11,7 +11,7 @@ import ua.volcaniccupcake.onlinestore.model.Sneakers;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/sneakers/")
+@RequestMapping("/sneakers")
 @RequiredArgsConstructor
 @Tag(name = "Sneakers Controller", description = "This REST controller provides services to manage sneakers in the Online Store Application")
 public class SneakersController {
