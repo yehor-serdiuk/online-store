@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name="product")
-@Table(name="product")
+@Entity(name="sneakers")
+@Table(name="sneakers")
 @Data
 public class Sneakers {
 
