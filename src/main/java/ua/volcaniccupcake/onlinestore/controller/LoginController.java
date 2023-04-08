@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

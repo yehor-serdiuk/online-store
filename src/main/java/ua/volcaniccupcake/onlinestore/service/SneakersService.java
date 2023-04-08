@@ -1,4 +1,6 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.service;
+
+import ua.volcaniccupcake.onlinestore.model.Sneakers;
 
 import java.util.Optional;
 

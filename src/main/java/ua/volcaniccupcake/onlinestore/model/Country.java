@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

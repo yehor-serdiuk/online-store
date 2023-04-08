@@ -1,2 +1,2 @@
 org.springframework.boot.diagnostics.FailureAnalyzer=\
-ua.volcaniccupcake.onlinestore.NoSneakersFailureAnalyzer
+ua.volcaniccupcake.onlinestore.exception.NoSneakersFailureAnalyzer

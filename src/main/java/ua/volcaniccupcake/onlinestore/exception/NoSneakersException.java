@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.exception;
 
 public class NoSneakersException extends RuntimeException {
     public NoSneakersException() {

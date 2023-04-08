@@ -1,18 +1,10 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.util;
 
 import lombok.AllArgsConstructor;
-import org.hibernate.mapping.List;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
+import ua.volcaniccupcake.onlinestore.repository.SneakersRepository;
 
 @Component
 @AllArgsConstructor

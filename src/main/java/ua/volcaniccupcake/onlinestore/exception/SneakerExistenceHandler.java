@@ -1,11 +1,10 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.exception;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
+import ua.volcaniccupcake.onlinestore.repository.SneakersRepository;
 
 @Component
 @AllArgsConstructor

@@ -1,8 +1,11 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.service;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ua.volcaniccupcake.onlinestore.exception.SneakersNotFoundException;
+import ua.volcaniccupcake.onlinestore.model.Sneakers;
+import ua.volcaniccupcake.onlinestore.repository.SneakersRepository;
+import ua.volcaniccupcake.onlinestore.service.SneakersService;
 
 import java.util.Optional;
 

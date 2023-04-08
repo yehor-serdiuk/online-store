@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.model;
 
 import lombok.Builder;
 import lombok.Getter;

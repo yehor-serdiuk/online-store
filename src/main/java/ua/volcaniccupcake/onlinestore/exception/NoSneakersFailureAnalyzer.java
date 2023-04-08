@@ -1,7 +1,8 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.exception;
 
 import org.springframework.boot.diagnostics.AbstractFailureAnalyzer;
 import org.springframework.boot.diagnostics.FailureAnalysis;
+import ua.volcaniccupcake.onlinestore.exception.NoSneakersException;
 
 public class NoSneakersFailureAnalyzer extends AbstractFailureAnalyzer<NoSneakersException> {
 

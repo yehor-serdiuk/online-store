@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.util;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
@@ -6,6 +6,7 @@ import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.Selector;
 import org.springframework.stereotype.Component;
+import ua.volcaniccupcake.onlinestore.model.ReleaseNote;
 
 import java.util.Collection;
 import java.util.Optional;

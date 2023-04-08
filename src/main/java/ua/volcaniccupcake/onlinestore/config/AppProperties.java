@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

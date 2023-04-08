@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore;
+package ua.volcaniccupcake.onlinestore.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
