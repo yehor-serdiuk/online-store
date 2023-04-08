@@ -24,17 +24,4 @@ public class OnlineStoreApplication {
 		SpringApplication.run(OnlineStoreApplication.class, args);
 	}
 
-	@Bean
-	public Collection<ReleaseNote> loadReleaseNotes() {
-		ReleaseNote note1 = ReleaseNote.builder()
-				.version("1.0.0")
-				.description("first version of the application")
-				.build();
-		ReleaseNote note2 = ReleaseNote.builder()
-				.version("1.0.1")
-				.description("minor bug fixes")
-				.build();
-		return new LinkedHashSet<>(Set.of(note1, note2));
-	}
-
 }
