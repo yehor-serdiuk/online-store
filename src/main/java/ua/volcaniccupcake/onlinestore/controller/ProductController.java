@@ -11,7 +11,7 @@ import ua.volcaniccupcake.onlinestore.model.Product;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/product/")
 @RequiredArgsConstructor
 @Tag(name = "Product Controller", description = "This REST controller provides services to manage product in the Online Store Application")
 public class ProductController {
