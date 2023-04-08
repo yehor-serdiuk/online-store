@@ -4,10 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name="sneakers")
-@Table(name="sneakers")
-@Setter
-@Getter
+@Entity(name="product")
+@Table(name="product")
+@Data
 public class Sneakers {
 
     @Id

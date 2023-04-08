@@ -21,9 +21,7 @@ public class OnlineStoreApplication {
 
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = SpringApplication.run(OnlineStoreApplication.class, args);
-		AppService service = applicationContext.getBean(AppService.class);
-		logger.info(String.format("store name: %s", service.getAppProperties().getName()));
+		SpringApplication.run(OnlineStoreApplication.class, args);
 	}
 
 	@Bean
