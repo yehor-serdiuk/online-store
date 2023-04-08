@@ -1,8 +1,5 @@
 package ua.volcaniccupcake.onlinestore;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import ua.volcaniccupcake.onlinestore.config.AppProperties;
 import ua.volcaniccupcake.onlinestore.model.ReleaseNote;
-import ua.volcaniccupcake.onlinestore.service.AppService;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;

@@ -11,5 +11,4 @@ public class AppProperties {
     private String name;
     private String description;
     private String version;
-
 }
