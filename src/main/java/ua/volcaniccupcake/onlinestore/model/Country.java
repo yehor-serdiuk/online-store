@@ -2,18 +2,18 @@ package ua.volcaniccupcake.onlinestore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity(name = "country")
-@Table(name = "country")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Entity(name = "country")
+@Table(name = "country")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

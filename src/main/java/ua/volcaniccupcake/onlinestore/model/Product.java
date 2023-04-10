@@ -4,9 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity(name="product")
 @Table(name="product")
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Product {
 
     @Id
@@ -19,4 +23,5 @@ public class Product {
     @ManyToOne
     @JoinColumn(name="country_id")
     Country country;
+
 }
