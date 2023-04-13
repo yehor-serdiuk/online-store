@@ -1,11 +1,11 @@
 CREATE TABLE country (
-    id BIGINT not null,
+    id IDENTITY not null,
     name VARCHAR(255),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE product (
-   id BIGINT not null,
+   id IDENTITY not null,
    name VARCHAR(255),
    country_id BIGINT not null,
    PRIMARY KEY (id)

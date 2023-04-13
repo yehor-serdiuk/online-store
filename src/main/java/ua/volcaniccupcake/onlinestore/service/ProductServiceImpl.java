@@ -30,12 +30,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProduct(long productId, Product product) {
-        productRepository.findById(productId).ifPresentOrElse(dbProduct -> {
+        productRepository.findById(productId).ifPresent(dbProduct -> {
             dbProduct.setName(product.getName());
 
             productRepository.save(dbProduct);
-        },
-        () -> productRepository.save(product));
+        });
     }
 
     @Override

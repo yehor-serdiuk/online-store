@@ -8,18 +8,18 @@ import lombok.*;
 @Entity(name="product")
 @Table(name="product")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="country_id")
     Country country;

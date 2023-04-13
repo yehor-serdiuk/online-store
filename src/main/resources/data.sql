@@ -1,20 +1,20 @@
-INSERT INTO country(id, name) VALUES (1, 'Ukraine');
-INSERT INTO country(id, name) VALUES (2, 'Poland');
-INSERT INTO country(id, name) VALUES (3, 'Germany');
-INSERT INTO country(id, name) VALUES (4, 'France');
-INSERT INTO country(id, name) VALUES (5, 'Germany');
-INSERT INTO country(id, name) VALUES (6, 'Netherlands');
-INSERT INTO country(id, name) VALUES (7, 'United States');
+INSERT INTO country(name) VALUES ('Ukraine');
+INSERT INTO country(name) VALUES ('Poland');
+INSERT INTO country(name) VALUES ('Germany');
+INSERT INTO country(name) VALUES ('France');
+INSERT INTO country(name) VALUES ('Germany');
+INSERT INTO country(name) VALUES ('Netherlands');
+INSERT INTO country(name) VALUES ('United States');
 
-INSERT INTO product(id, name, country_id) VALUES (1, 'Adidas sneakers', 1);
-INSERT INTO product(id, name, country_id) VALUES (2, 'Nike sneakers', 1);
-INSERT INTO product(id, name, country_id) VALUES (3, 'New Balance sneakers', 1);
+INSERT INTO product(name, country_id) VALUES ('Adidas sneakers', 1);
+INSERT INTO product(name, country_id) VALUES ('Nike sneakers', 1);
+INSERT INTO product(name, country_id) VALUES ('New Balance sneakers', 1);
 
-INSERT INTO product(id, name, country_id) VALUES (4, 'Converse sneakers', 2);
-INSERT INTO product(id, name, country_id) VALUES (5, 'Vans sneakers', 2);
+INSERT INTO product(name, country_id) VALUES ('Converse sneakers', 2);
+INSERT INTO product(name, country_id) VALUES ('Vans sneakers', 2);
 
-INSERT INTO product(id, name, country_id) VALUES (6, 'Reebok sneakers', 3);
-INSERT INTO product(id, name, country_id) VALUES (7, 'Puma sneakers', 4);
-INSERT INTO product(id, name, country_id) VALUES (8, 'Asics sneakers', 5);
-INSERT INTO product(id, name, country_id) VALUES (9, 'Luxury Designers sneakers', 6);
-INSERT INTO product(id, name, country_id) VALUES (10, 'Salomon sneakers', 6);
+INSERT INTO product(name, country_id) VALUES ('Reebok sneakers', 3);
+INSERT INTO product(name, country_id) VALUES ('Puma sneakers', 4);
+INSERT INTO product(name, country_id) VALUES ('Asics sneakers', 5);
+INSERT INTO product(name, country_id) VALUES ('Luxury Designers sneakers', 6);
+INSERT INTO product(name, country_id) VALUES ('Salomon sneakers', 6);

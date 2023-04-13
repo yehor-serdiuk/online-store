@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Entity(name = "country")
@@ -17,11 +16,14 @@ import java.util.Set;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
     private List<Product> productList;
+
 }

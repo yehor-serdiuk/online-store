@@ -13,7 +13,8 @@ import java.util.List;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Long> {
-    List<Country> findAllByName(String name, Pageable pageable);
+    List<Country> findAllByName(String name);
+    Country findByName(String name);
 
     @Modifying
     @Transactional

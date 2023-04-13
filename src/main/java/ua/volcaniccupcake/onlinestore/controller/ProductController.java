@@ -11,7 +11,7 @@ import ua.volcaniccupcake.onlinestore.model.Product;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/product/")
+@RequestMapping("/product")
 @RequiredArgsConstructor
 @Tag(name = "Product Controller", description = "This REST controller provides services to manage product in the Online Store Application")
 public class ProductController {
@@ -25,7 +25,7 @@ public class ProductController {
         return productService.getProduct();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Provides product details for the supplied product id")
     public Optional<Product> getProductById(@PathVariable("id") long productId) {
@@ -38,14 +38,14 @@ public class ProductController {
         return productService.createProduct(product);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Updates product in the application for a supplied product id")
     public void updateCourse(@PathVariable("id") long productId, @RequestBody Product product) {
         productService.updateProduct(productId, product);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Deletes product in the application for a supplied product id")
     void deleteProductById(@PathVariable("id") long productId) {
