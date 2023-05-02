@@ -12,10 +12,10 @@ public class ProductExistenceHandler {
 
     private ProductRepository productRepository;
 
-    @EventListener(classes = ContextRefreshedEvent.class)
+    /*@EventListener(classes = ContextRefreshedEvent.class)
     public void listen() {
         if ( productRepository.count() == 0 )
             throw new NoProductException();
-    }
+    }*/
 
 }

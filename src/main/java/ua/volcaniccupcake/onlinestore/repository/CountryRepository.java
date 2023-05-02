@@ -10,14 +10,11 @@ import org.springframework.stereotype.Repository;
 import ua.volcaniccupcake.onlinestore.model.Country;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Long> {
     List<Country> findAllByName(String name);
-    Country findByName(String name);
+    Optional<Country> findByName(String name);
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE country c SET c.name=:name WHERE c.id=:id")
-    int updateCountryNameById(@Param("id") Long id, @Param("name") String name);
 }

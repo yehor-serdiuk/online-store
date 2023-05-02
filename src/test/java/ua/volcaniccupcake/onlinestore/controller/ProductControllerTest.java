@@ -63,7 +63,7 @@ class ProductControllerTest {
 
     @Test
     void getAllProduct() throws Exception {
-        mvc.perform(get("/product").with(httpBasic("user", "password")))
+        mvc.perform(get("/product").with(httpBasic("foo", "aa")))
                 .andExpect(status().isOk());
     }
 
@@ -77,7 +77,7 @@ class ProductControllerTest {
     void createProduct() throws Exception {
         Product product = new Product();
         product.setName("monitor");
-        product.setCountry(countryRepository.findByName("Ukraine"));
+        product.setCountry(countryRepository.findByName("Ukraine").get());
         assert(productRepository.count() == 10);
         mvc.perform(post("/product")
                 .contentType(MediaType.APPLICATION_JSON)
