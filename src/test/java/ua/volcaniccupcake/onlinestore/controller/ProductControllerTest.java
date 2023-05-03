@@ -63,7 +63,7 @@ class ProductControllerTest {
 
     @Test
     void getAllProduct() throws Exception {
-        mvc.perform(get("/product").with(httpBasic("foo", "aa")))
+        mvc.perform(get("/product").with(httpBasic("user", "password-user")))
                 .andExpect(status().isOk());
     }
 
