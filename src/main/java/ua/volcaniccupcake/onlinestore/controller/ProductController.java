@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import ua.volcaniccupcake.onlinestore.service.ProductService;
 import ua.volcaniccupcake.onlinestore.model.Product;
@@ -21,6 +22,7 @@ public class ProductController {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Provides all product available in the application")
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
     public Iterable<Product> getAllProduct() {
         return productService.getProduct();
     }
