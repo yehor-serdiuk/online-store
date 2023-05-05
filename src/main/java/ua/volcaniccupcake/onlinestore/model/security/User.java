@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Setter
 @Getter
@@ -25,10 +26,10 @@ public class User {
 
     @Singular
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "user_authority",
+    @JoinTable(name = "user_role",
     joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
-    inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
-    private Set<Authority> authorities;
+    inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
+    private Set<Role> roles;
 
     @Builder.Default
     private Boolean accountNonExpired = true;
@@ -42,5 +43,11 @@ public class User {
     @Builder.Default
     private Boolean enabled = true;
 
+    public Set<Authority> getAuthorities() {
+        return this.roles.stream()
+                .map(Role::getAuthorities)
+                .flatMap(Set::stream)
+                .collect(Collectors.toSet());
+    }
 
 }

@@ -5,7 +5,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import ua.volcaniccupcake.onlinestore.security.permissions.ProductCreatePermission;
+import ua.volcaniccupcake.onlinestore.security.permissions.ProductDeletePermission;
+import ua.volcaniccupcake.onlinestore.security.permissions.ProductReadPermission;
+import ua.volcaniccupcake.onlinestore.security.permissions.ProductUpdatePermission;
 import ua.volcaniccupcake.onlinestore.service.ProductService;
 import ua.volcaniccupcake.onlinestore.model.Product;
 
@@ -22,7 +27,7 @@ public class ProductController {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Provides all product available in the application")
-    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @ProductReadPermission
     public Iterable<Product> getAllProduct() {
         return productService.getProduct();
     }
@@ -30,12 +35,14 @@ public class ProductController {
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Provides product details for the supplied product id")
+    @ProductReadPermission
     public Optional<Product> getProductById(@PathVariable("id") long productId) {
         return productService.getProductById(productId);
     }
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     @Operation(summary = "Creates new product in the application")
+    @ProductCreatePermission
     public Product createProduct(@RequestBody Product product) {
         return productService.createProduct(product);
     }
@@ -43,6 +50,7 @@ public class ProductController {
     @PutMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Updates product in the application for a supplied product id")
+    @ProductUpdatePermission
     public void updateCourse(@PathVariable("id") long productId, @RequestBody Product product) {
         productService.updateProduct(productId, product);
     }
@@ -50,6 +58,7 @@ public class ProductController {
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Deletes product in the application for a supplied product id")
+    @ProductDeletePermission
     void deleteProductById(@PathVariable("id") long productId) {
         productService.deleteProductById(productId);
     }
@@ -57,6 +66,7 @@ public class ProductController {
     @DeleteMapping
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Deletes all product in the application")
+    @ProductDeletePermission
     void deleteProduct() {
         productService.deleteProduct();
     }
