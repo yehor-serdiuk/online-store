@@ -18,6 +18,7 @@ public class Authority {
 
     private String permission;
 
-    @ManyToMany(mappedBy = "authorities")
-    private Set<User> roles;
+    @Singular
+    @ManyToMany(mappedBy = "authorities", fetch = FetchType.EAGER)
+    private Set<Role> roles;
 }

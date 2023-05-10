@@ -4,10 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Product {
 
     @Id
@@ -16,8 +20,11 @@ public class Product {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name="country_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="COUNTRY_ID")
     Country country;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    Set<Item> items;
 
 }

@@ -2,8 +2,13 @@ package ua.volcaniccupcake.onlinestore.model.security;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import ua.volcaniccupcake.onlinestore.model.Customer;
 
+import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,7 +19,7 @@ import java.util.stream.Collectors;
 @Builder
 @Entity
 @Table(name = "\"USER\"")
-public class User {
+public class User implements UserDetails, CredentialsContainer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +30,17 @@ public class User {
     private String username;
 
     @Singular
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
     joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
     inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private Set<Role> roles;
+
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    private Customer customer;
+
+    @Transient
+    private Set<Authority> authorities;
 
     @Builder.Default
     private Boolean accountNonExpired = true;
@@ -43,11 +54,38 @@ public class User {
     @Builder.Default
     private Boolean enabled = true;
 
-    public Set<Authority> getAuthorities() {
+    public Set<GrantedAuthority> getAuthorities() {
         return this.roles.stream()
                 .map(Role::getAuthorities)
                 .flatMap(Set::stream)
+                .map(authority -> {
+                    return new SimpleGrantedAuthority(authority.getPermission());
+                })
                 .collect(Collectors.toSet());
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return this.accountNonExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return this.accountNonLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return this.credentialsNonExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
+    }
+
+    @Override
+    public void eraseCredentials() {
+        this.password = null;
+    }
 }
