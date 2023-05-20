@@ -1,5 +1,6 @@
 package ua.volcaniccupcake.onlinestore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +24,7 @@ public class Item {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToMany(mappedBy = "items", fetch = FetchType.EAGER)
-    private Set<Order> orders;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
 }

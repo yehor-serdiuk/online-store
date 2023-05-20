@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ua.volcaniccupcake.onlinestore.model.Customer;
 
-import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,6 +38,9 @@ public class User implements UserDetails, CredentialsContainer {
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
     private Customer customer;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<AuthorizationFailure> authorizationFailures;
+
     @Transient
     private Set<Authority> authorities;
 
@@ -54,6 +56,13 @@ public class User implements UserDetails, CredentialsContainer {
     @Builder.Default
     private Boolean enabled = true;
 
+    @Builder.Default
+    private Boolean userGoogle2fa = false;
+
+    private String google2FaSecret;
+
+    @Transient
+    private Boolean google2FaRequired;
     public Set<GrantedAuthority> getAuthorities() {
         return this.roles.stream()
                 .map(Role::getAuthorities)

@@ -49,10 +49,50 @@ public class DataLoader implements ApplicationRunner {
         Authority readProduct = authorityRepository.save(Authority.builder()
                 .permission("product.read")
                 .build());
+        Authority customerCreateProduct = authorityRepository.save(Authority.builder()
+                .permission("customer.product.create")
+                .build());
+        Authority customerUpdateProduct = authorityRepository.save(Authority.builder()
+                .permission("customer.product.update")
+                .build());
+        Authority customerDeleteProduct = authorityRepository.save(Authority.builder()
+                .permission("customer.product.delete")
+                .build());
+        Authority customerReadProduct = authorityRepository.save(Authority.builder()
+                .permission("customer.product.read")
+                .build());
+        Authority createOrder = authorityRepository.save(Authority.builder()
+                .permission("order.create")
+                .build());
+        Authority updateOrder = authorityRepository.save(Authority.builder()
+                .permission("order.update")
+                .build());
+        Authority deleteOrder = authorityRepository.save(Authority.builder()
+                .permission("order.delete")
+                .build());
+        Authority readOrder = authorityRepository.save(Authority.builder()
+                .permission("order.read")
+                .build());
+        Authority customerCreateOrder = authorityRepository.save(Authority.builder()
+                .permission("customer.order.create")
+                .build());
+        Authority customerUpdateOrder = authorityRepository.save(Authority.builder()
+                .permission("customer.order.update")
+                .build());
+        Authority customerDeleteOrder = authorityRepository.save(Authority.builder()
+                .permission("customer.order.delete")
+                .build());
+        Authority customerReadOrder = authorityRepository.save(Authority.builder()
+                .permission("customer.order.read")
+                .build());
 
         Role userRole = roleRepository.save(Role.builder()
                 .name("USER")
-                .authority(readProduct)
+                .authority(customerReadProduct)
+                .authority(customerCreateOrder)
+                .authority(customerDeleteOrder)
+                .authority(customerReadOrder)
+                .authority(customerUpdateOrder)
                 .build());
         Role adminRole = roleRepository.save(Role.builder()
                 .name("ADMIN")
@@ -60,6 +100,10 @@ public class DataLoader implements ApplicationRunner {
                 .authority(updateProduct)
                 .authority(deleteProduct)
                 .authority(readProduct)
+                .authority(createOrder)
+                .authority(updateOrder)
+                .authority(deleteOrder)
+                .authority(readOrder)
                 .build());
 
         User user = userRepository.save(User.builder()
