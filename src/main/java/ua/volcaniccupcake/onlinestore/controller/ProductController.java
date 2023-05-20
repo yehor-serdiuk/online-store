@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import ua.volcaniccupcake.onlinestore.model.security.User;
 import ua.volcaniccupcake.onlinestore.security.permissions.ProductCreatePermission;
 import ua.volcaniccupcake.onlinestore.security.permissions.ProductDeletePermission;
 import ua.volcaniccupcake.onlinestore.security.permissions.ProductReadPermission;
@@ -17,7 +19,7 @@ import ua.volcaniccupcake.onlinestore.model.Product;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 @RequiredArgsConstructor
 @Tag(name = "Product Controller", description = "This REST controller provides services to manage product in the Online Store Application")
 public class ProductController {
