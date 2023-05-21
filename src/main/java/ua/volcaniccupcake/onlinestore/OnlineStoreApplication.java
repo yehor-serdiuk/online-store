@@ -17,8 +17,6 @@ import java.util.Set;
 @SpringBootApplication
 @EnableConfigurationProperties(AppProperties.class)
 public class OnlineStoreApplication {
-	protected static final Logger logger = LoggerFactory.getLogger(OnlineStoreApplication.class);
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(OnlineStoreApplication.class, args);
