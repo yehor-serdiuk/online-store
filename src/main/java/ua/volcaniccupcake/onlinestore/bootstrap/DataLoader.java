@@ -143,18 +143,7 @@ public class DataLoader implements ApplicationRunner {
                 .country(spain)
                 .build());
 
-        Item twoMonitors = itemRepository.save(Item.builder()
-                .number(2)
-                .product(monitor)
-                .build());
-        Item oneMonitor = itemRepository.save(Item.builder()
-                .number(1)
-                .product(monitor)
-                .build());
-        Item fiveMice = itemRepository.save(Item.builder()
-                .number(5)
-                .product(mouse)
-                .build());
+
 
         Customer customerBob = customerRepository.save(Customer.builder()
                 .user(user)
@@ -165,12 +154,25 @@ public class DataLoader implements ApplicationRunner {
 
         Order order1 = orderRepository.save(Order.builder()
                 .customer(customerBob)
-                .item(twoMonitors)
-                .item(fiveMice)
                 .build());
         Order order2 = orderRepository.save(Order.builder()
                 .customer(customerBob)
-                .item(fiveMice)
+                .build());
+
+        Item twoMonitors = itemRepository.save(Item.builder()
+                .number(2)
+                .order(order1)
+                .product(monitor)
+                .build());
+        Item oneMonitor = itemRepository.save(Item.builder()
+                .number(1)
+                .order(order1)
+                .product(monitor)
+                .build());
+        Item fiveMice = itemRepository.save(Item.builder()
+                .number(5)
+                .order(order2)
+                .product(mouse)
                 .build());
     }
 }
