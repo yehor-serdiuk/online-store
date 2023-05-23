@@ -6,10 +6,15 @@ import org.springframework.stereotype.Repository;
 import ua.volcaniccupcake.onlinestore.model.Order;
 import ua.volcaniccupcake.onlinestore.model.security.Role;
 
+import java.util.Optional;
+import java.util.Set;
+
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
-    public Iterable<Order> findAllByCustomer_Id(long customerId);
 
-    public Iterable<Order> findAllByCustomer_IdAndId(long customerId, long id);
+    public Order findById(long id);
+    public Set<Order> findAllByCustomer_Id(long customerId);
+
+    public Set<Order> findAllByCustomer_IdAndId(long customerId, long id);
 }
 
