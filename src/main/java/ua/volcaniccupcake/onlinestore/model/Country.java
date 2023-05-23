@@ -12,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 @Entity
 @Builder
 public class Country {
@@ -21,8 +22,7 @@ public class Country {
 
     private String name;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "country", fetch = FetchType.EAGER)
-    private List<Product> productList;
+    private Set<Product> productSet;
 
 }

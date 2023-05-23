@@ -10,6 +10,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @Builder
 @Table(name = "\"ORDER\"")
 public class Order {
@@ -22,11 +23,6 @@ public class Order {
     private Customer customer;
 
     @Singular
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "order_item",
-    joinColumns = {@JoinColumn(name = "ORDER_ID", referencedColumnName = "ID")},
-    inverseJoinColumns = {@JoinColumn(name = "ITEM_ID", referencedColumnName = "ID")})
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private Set<Item> items;
-
-
 }
