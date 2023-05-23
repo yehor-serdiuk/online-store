@@ -10,6 +10,6 @@ import ua.volcaniccupcake.onlinestore.model.dto.ProductDTO;
 public interface ProductMapper {
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);;
 
-    //@Mapping(target = "countryName", source = "entity.country.name")
-    //ProductDTO productToProductDTO(Product entity);
+    @Mapping(target = "countryName", source = "product.country.name")
+    ProductDTO productToProductDTO(Product product);
 }
