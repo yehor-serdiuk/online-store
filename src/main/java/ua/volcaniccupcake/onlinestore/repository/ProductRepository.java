@@ -10,4 +10,6 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findAllByName(String name);
+
+    boolean existsById(Long id);
 }

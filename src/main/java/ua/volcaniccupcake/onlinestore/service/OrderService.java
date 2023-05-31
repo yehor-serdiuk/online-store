@@ -11,7 +11,7 @@ import java.util.Set;
 
 public interface OrderService {
 
-    OrderDTO save(Customer customer, OrderDTO orderDTO);
+    void save(Customer customer, OrderDTO orderDTO);
 
     public Set<OrderDTO> listOrdersByCustomerId(long customerId);
 
