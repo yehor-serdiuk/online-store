@@ -1,6 +1,7 @@
 package ua.volcaniccupcake.onlinestore.bootstrap;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +17,7 @@ import ua.volcaniccupcake.onlinestore.repository.security.UserRepository;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class DataLoader implements ApplicationRunner {
     private final UserRepository userRepository;
     private final AuthorityRepository authorityRepository;
@@ -111,12 +113,17 @@ public class DataLoader implements ApplicationRunner {
                 .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-user"))
                 .role(userRole)
                 .build());
+        log.debug("Loaded user");
+        log.debug("     username: " + user.getUsername());
+        log.debug("     password: " + user.getPassword());
         User admin = userRepository.save(User.builder()
                 .username("admin")
                 .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-admin"))
                 .role(adminRole)
                 .build());
-
+        log.debug("Loaded user");
+        log.debug("     username: " + admin.getUsername());
+        log.debug("     password: " + admin.getPassword());
         Country ukraine = countryRepository.save(Country.builder()
                 .name("Ukraine")
                 .build());
