@@ -1,6 +1,8 @@
 package ua.volcaniccupcake.onlinestore.exception;
 
+import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -25,5 +27,13 @@ public class OnlineStoreGlobalExceptionHandler extends ResponseEntityExceptionHa
                                                 WebRequest request) {
         return super.handleExceptionInternal(invalidOrderException, invalidOrderException.getMessage(),
                                             new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(value = {UserAlreadyExistsException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<?> handleUserAlreadyExists(UserAlreadyExistsException userAlreadyExistsException,
+                                                     WebRequest request) {
+        return super.handleExceptionInternal(userAlreadyExistsException, "user already exists",
+                new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }
