@@ -1,12 +1,13 @@
 package ua.volcaniccupcake.onlinestore.config;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-@Data
-@ConfigurationProperties("app.properties")
-@AllArgsConstructor
+@Configuration
+@ConfigurationProperties(prefix = "app.properties")
+@Getter
+@Setter
 public class AppProperties {
     private String name;
     private String description;

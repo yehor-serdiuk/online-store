@@ -13,6 +13,6 @@ public interface OrderService {
 
     void save(Customer customer, OrderDTO orderDTO);
 
-    public Set<OrderDTO> listOrdersByCustomerId(long customerId);
+    Set<OrderDTO> listOrdersByCustomerId(long customerId);
 
 }

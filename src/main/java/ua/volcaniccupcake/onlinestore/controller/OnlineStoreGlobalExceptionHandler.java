@@ -1,4 +1,4 @@
-package ua.volcaniccupcake.onlinestore.exception;
+package ua.volcaniccupcake.onlinestore.controller;
 
 import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import ua.volcaniccupcake.onlinestore.exception.InvalidOrderException;
+import ua.volcaniccupcake.onlinestore.exception.ProductNotFoundException;
+import ua.volcaniccupcake.onlinestore.exception.UserAlreadyExistsException;
 
 @ControllerAdvice
 public class OnlineStoreGlobalExceptionHandler extends ResponseEntityExceptionHandler {
