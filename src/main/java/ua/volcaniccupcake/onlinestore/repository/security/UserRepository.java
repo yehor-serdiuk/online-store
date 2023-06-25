@@ -11,6 +11,7 @@ import java.util.Set;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findByUsername(String username);
+    boolean findByUsernameExists(String username);
 
     Set<User> findAllByAccountNonLocked(Boolean accountNonLocked);
 }

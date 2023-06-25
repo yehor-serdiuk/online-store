@@ -1,6 +1,7 @@
 package ua.volcaniccupcake.onlinestore.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -29,28 +30,19 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ExtendWith(SpringExtension.class)
-@AutoConfigureMockMvc
-@SpringBootTest
+@WebMvcTest
 class ProductControllerTest {
 
     @Autowired
     WebApplicationContext wac;
 
     @Autowired
-    private MockMvc mvc;
+    MockMvc mvc;
 
-    @Autowired
-    private ProductService productService;
+    @MockBean
+    ProductService productService;
 
-    @Autowired
-    private CountryRepository countryRepository;
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
 
     @BeforeEach
     void setUp() {

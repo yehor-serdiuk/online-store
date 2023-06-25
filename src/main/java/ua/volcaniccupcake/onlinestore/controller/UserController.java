@@ -2,6 +2,7 @@ package ua.volcaniccupcake.onlinestore.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +20,7 @@ public class UserController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Registers a new user")
-    public void registerNewUser(@RequestBody UserDTO userDTO) {
+    public void registerNewUser(@RequestBody @Valid UserDTO userDTO) {
         userService.registerNewUser(userDTO);
     }
 }
