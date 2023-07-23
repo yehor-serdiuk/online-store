@@ -32,57 +32,20 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class SecurityConfiguration {
     private final JpaUserDetailsService jpaUserDetailsService;
-    //private final PersistentTokenRepository persistentTokenRepository;
 
 
    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
        http.authorizeHttpRequests()
-               .requestMatchers(HttpMethod.GET, "/product/**").hasRole("USER")
                .requestMatchers("/h2-console/**").permitAll()
+               .requestMatchers(HttpMethod.GET, "/api/product/**").permitAll()
                .requestMatchers(HttpMethod.POST, "/api/user").permitAll()
                .anyRequest().authenticated()
                .and()
                .httpBasic()
                .and()
-               //.rememberMe()
-               //     .tokenRepository(persistentTokenRepository)
-               //     .userDetailsService(jpaUserDetailsService)
-               //.rememberMe()
-               //     .key("mega-key")
-               //    .userDetailsService(jpaUserDetailsService)
-               //.and()
                .csrf().disable()
                .headers().frameOptions().sameOrigin();
         return http.build();
     }
-
-    /*@Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user1 = User.withDefaultPasswordEncoder()
-                .username("admin")
-                .password("password-admin")
-                .roles("ADMIN")
-                .build();
-
-        UserDetails user2 = User.withDefaultPasswordEncoder()
-                .username("bob")
-                .password("password-bob")
-                .roles("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(user1, user2);
-    }*/
-
-    /*@Bean
-    public void userDetailsManager(AuthenticationManagerBuilder auth) throws Exception {
-       auth.inMemoryAuthentication()
-               .withUser("spring")
-               .password("{noop}password-spring")
-               .roles("ADMIN")
-               .and()
-               .withUser("wall")
-               .password("{noop}password-wall")
-               .roles("USER");
-    }*/
 }

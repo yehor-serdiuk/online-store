@@ -26,13 +26,6 @@ public class SecurityBeans {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    //@Bean
-    //public PersistentTokenRepository persistentTokenRepository(DataSource dataSource) {
-    //    JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
-    //    tokenRepository.setDataSource(dataSource);
-   //     return tokenRepository;
-    //}
-
     @Bean
     public SecurityEvaluationContextExtension securityEvaluationContextExtension() {
         return new SecurityEvaluationContextExtension();
