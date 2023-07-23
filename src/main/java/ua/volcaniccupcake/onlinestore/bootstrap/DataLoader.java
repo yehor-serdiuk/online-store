@@ -107,11 +107,18 @@ public class DataLoader implements ApplicationRunner {
                 .authority(deleteOrder)
                 .authority(readOrder)
                 .build());
-
+        Role restrictedRole = roleRepository.save(Role.builder()
+                .name("RESTRICTED")
+                .build());
         User user = userRepository.save(User.builder()
                 .username("user")
                 .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-user"))
                 .role(userRole)
+                .build());
+        User restricted = userRepository.save(User.builder()
+                .username("restricted")
+                .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-restricted"))
+                .role(restrictedRole)
                 .build());
         log.debug("Loaded user");
         log.debug("     username: " + user.getUsername());

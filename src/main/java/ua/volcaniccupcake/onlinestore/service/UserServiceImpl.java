@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean userExists(UserDTO userDTO) {
-        return userRepository.findByUsernameExists(userDTO.getUsername());
+        return userRepository.existsByUsername(userDTO.getUsername());
     }
     private boolean passwordMatches(UserDTO userDTO) {
         return userDTO.getPassword()

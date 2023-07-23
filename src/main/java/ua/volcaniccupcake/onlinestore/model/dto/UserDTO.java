@@ -1,7 +1,6 @@
 package ua.volcaniccupcake.onlinestore.model.dto;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.mapstruct.Mapping;
 
@@ -12,15 +11,21 @@ import org.mapstruct.Mapping;
 @AllArgsConstructor
 public class UserDTO {
 
-    @Min(2)
-    @Max(32)
+    @Size(min = 2, max = 32)
     private String username;
 
-    @Min(8)
-    @Max(32)
+    @Size(min = 8, max = 32)
     private String password;
 
-    @Min(8)
-    @Max(32)
+    @Size(min = 8, max = 32)
     private String repeatPassword;
+
+    @Size(min = 8, max = 32)
+    private String phoneNumber;
+
+    @Size(min = 1, max = 64)
+    private String name;
+
+    @Email
+    private String email;
 }

@@ -15,7 +15,6 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class UserUnlockService {
     private final UserRepository userRepository;
-    private final AuthorizationFailureRepository failureRepository;
 
     @Scheduled(fixedRate = 4 * 60 * 60 * 1000)
     public void unlockUsers() {

@@ -56,13 +56,6 @@ public class User implements UserDetails, CredentialsContainer {
     @Builder.Default
     private Boolean enabled = true;
 
-    @Builder.Default
-    private Boolean userGoogle2fa = false;
-
-    private String google2FaSecret;
-
-    @Transient
-    private Boolean google2FaRequired;
     public Set<GrantedAuthority> getAuthorities() {
         return this.roles.stream()
                 .map(Role::getAuthorities)
