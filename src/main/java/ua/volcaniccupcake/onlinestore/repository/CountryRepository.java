@@ -14,7 +14,6 @@ import java.util.Optional;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Long> {
-    List<Country> findAllByName(String name);
-    Optional<Country> findByName(String name);
+    Optional<Country> findByNameIgnoreCase(String name);
 
 }
