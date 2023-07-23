@@ -12,4 +12,6 @@ public interface ProductMapper {
 
     @Mapping(target = "countryName", source = "product.country.name")
     ProductDTO productToProductDTO(Product product);
+
+    Iterable<ProductDTO> productIterableToProductDTOIterable(Iterable<Product> productIterable);
 }
