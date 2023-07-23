@@ -26,13 +26,13 @@ public class OrderController {
     @Operation(summary = "Creates a new order for a specific user")
     public void createOrder(@RequestBody OrderDTO orderDTO,
                             @AuthenticationPrincipal User user) {
-        orderService.save(user.getCustomer(), orderDTO);
+        orderService.save(user, orderDTO);
     }
 
     @GetMapping
     @Operation(summary = "Provides orders for a specific user")
-    public Set<OrderDTO> getOrdersByCustomerId(@AuthenticationPrincipal User user) {
-        return orderService.listOrdersByCustomerId(user.getCustomer().getId());
+    public Set<OrderDTO> getOrdersByUser(@AuthenticationPrincipal User user) {
+        return orderService.listOrders(user);
     }
 
 }
