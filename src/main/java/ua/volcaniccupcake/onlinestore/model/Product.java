@@ -24,7 +24,7 @@ public class Product {
     @JoinColumn(name="COUNTRY_ID")
     Country country;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     Set<Item> items;
 
 }

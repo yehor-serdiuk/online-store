@@ -8,6 +8,7 @@ import ua.volcaniccupcake.onlinestore.exception.UserAlreadyExistsException;
 import ua.volcaniccupcake.onlinestore.model.dto.UserDTO;
 import ua.volcaniccupcake.onlinestore.model.mapper.UserMapper;
 import ua.volcaniccupcake.onlinestore.model.security.User;
+import ua.volcaniccupcake.onlinestore.repository.CustomerRepository;
 import ua.volcaniccupcake.onlinestore.repository.security.UserRepository;
 
 @Service
@@ -15,6 +16,7 @@ import ua.volcaniccupcake.onlinestore.repository.security.UserRepository;
 @Slf4j
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final CustomerRepository customerRepository;
     private final UserMapper userMapper = UserMapper.INSTANCE;
     @Override
     public void registerNewUser(UserDTO userDTO) {
@@ -28,6 +30,8 @@ public class UserServiceImpl implements UserService {
 
         User user = userMapper.userDTOToUser(userDTO);
         log.debug(user.toString());
+
+        customerRepository.save(user.getCustomer());
         userRepository.save(user);
     }
 
