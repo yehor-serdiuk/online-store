@@ -23,8 +23,8 @@ public class Customer {
 
     private String email;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "USER_ID")
+
+    @OneToOne(mappedBy = "customer", fetch = FetchType.EAGER)
     private User user;
 
     @Singular

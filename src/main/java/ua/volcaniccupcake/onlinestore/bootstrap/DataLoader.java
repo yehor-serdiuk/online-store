@@ -110,13 +110,25 @@ public class DataLoader implements ApplicationRunner {
         Role restrictedRole = roleRepository.save(Role.builder()
                 .name("RESTRICTED")
                 .build());
+        Customer customerUser = customerRepository.save(Customer.builder()
+                .name("Bob")
+                .email("bob@gmail.com")
+                .phoneNumber("+380673332211")
+                .build());
+        Customer customerRestricted = customerRepository.save(Customer.builder()
+                .name("Andrew")
+                .email("andrew@gmail.com")
+                .phoneNumber("+380673333333")
+                .build());
         User user = userRepository.save(User.builder()
                 .username("user")
+                .customer(customerUser)
                 .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-user"))
                 .role(userRole)
                 .build());
         User restricted = userRepository.save(User.builder()
                 .username("restricted")
+                .customer(customerRestricted)
                 .password("{bcrypt}" + bCryptPasswordEncoder.encode("password-restricted"))
                 .role(restrictedRole)
                 .build());
@@ -158,19 +170,11 @@ public class DataLoader implements ApplicationRunner {
                 .build());
 
 
-
-        Customer customerBob = customerRepository.save(Customer.builder()
-                .user(user)
-                .name("Bob")
-                .email("bob@gmail.com")
-                .phoneNumber("+380673332211")
-                .build());
-
         Order order1 = orderRepository.save(Order.builder()
-                .customer(customerBob)
+                .customer(customerUser)
                 .build());
         Order order2 = orderRepository.save(Order.builder()
-                .customer(customerBob)
+                .customer(customerUser)
                 .build());
 
         Item twoMonitors = itemRepository.save(Item.builder()

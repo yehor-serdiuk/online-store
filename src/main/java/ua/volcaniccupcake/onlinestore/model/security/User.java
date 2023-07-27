@@ -35,7 +35,8 @@ public class User implements UserDetails, CredentialsContainer {
     inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private Set<Role> roles;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    @JoinColumn(name = "CUSTOMER_ID")
+    @OneToOne(fetch = FetchType.EAGER)
     private Customer customer;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
